@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
       - name: crud-microservice
-        image: {{ images }}
+        image: australia-southeast1-docker.pkg.dev/sit737-23t1-mumu-4f8a866/sadia-docker-repo/sadia-image:tag1
