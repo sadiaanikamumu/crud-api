@@ -1,13 +1,14 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'australia-southeast1-docker.pkg.dev/sit737-23t1-mumu-4f8a866/sadia-docker-repo/sadia-image:tag1', '.' ]
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --filename=deployment-configuration.yaml
+  - --location=australia-southeast1
+  - --cluster=sadia
 images:
 - 'australia-southeast1-docker.pkg.dev/sit737-23t1-mumu-4f8a866/sadia-docker-repo/sadia-image:tag1'
 options:
   logging: CLOUD_LOGGING_ONLY
-- name: "gcr.io/cloud-builders/gke-deploy"
-  args:
-  - run
-  - --filename=./deployment-configuration.yaml
-  - --location=australia-southeast1
-  - --cluster=sadia
+
