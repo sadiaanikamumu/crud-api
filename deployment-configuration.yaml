@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crud-microservice
+  labels:
+    app: crud-microservice
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: crud-microservice
+  template:
+    metadata:
+      labels:
+        app: crud-microservice
+    spec:
+      containers:
+      - name: crud-microservice
+        image: australia-southeast1-docker.pkg.dev/sit737-23t1-mumu-4f8a866/sadia-docker-repo/sadia-image:tag1
